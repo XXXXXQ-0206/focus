@@ -1,0 +1,35 @@
+* text=auto
+
+# Source and document files should use LF line endings for consistency.
+*.rs text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.mjs text eol=lf
+
+# Windows-first scripts keep CRLF to match the host convention.
+*.ps1 text eol=crlf
+
+# Binary archives and media must never be line-normalised or diffed.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.bin binary
+*.gz binary
+*.tgz binary
+*.zip binary
+*.jar binary
+*.pdb binary
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# Generated / vendored files are not worth diffing.
+*.lockb binary

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Quality (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install Rust toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --component rustfmt,clippy
+          rustup default stable
+      - name: Fetch locked dependencies
+        run: cargo fetch --locked
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+      - name: Lint
+        run: cargo clippy --workspace --all-targets --locked --offline -- -D warnings
+      - name: Test
+        run: cargo test --workspace --locked --offline
+      - name: Build release
+        run: cargo build --workspace --release --locked --offline
+      - name: Check production release compliance
+        run: cargo run --locked --offline -p focus-release-compliance -- --mode production --workspace .

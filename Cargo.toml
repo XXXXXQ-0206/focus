@@ -1,0 +1,49 @@
+[workspace]
+members = [
+    "crates/focus-kernel",
+    "crates/focus-runtime",
+    "crates/focus-cli",
+    "crates/focus-release-compliance",
+]
+resolver = "3"
+
+[workspace.package]
+version = "1.0.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+description = "A Codex-inspired, evidence-driven Rust coding agent with an auditable host harness."
+repository = "https://github.com/XXXXXQ-0206/focus"
+readme = "README.md"
+keywords = ["coding-agent", "cli", "terminal", "mcp", "ai"]
+categories = ["command-line-utilities", "development-tools"]
+rust-version = "1.97"
+authors = ["Focus Harness Contributors"]
+
+[workspace.dependencies]
+async-trait = "0.1.92"
+command-group = "=5.0.1"
+crossterm = "=0.29.0"
+futures = "0.3.33"
+fs4 = "0.13.1"
+pulldown-cmark = "=0.13.4"
+ratatui = "=0.30.2"
+reqwest = { version = "=0.13.4", default-features = false, features = ["blocking", "json", "rustls", "stream"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sha2 = "0.10.9"
+thiserror = "2.0.20"
+tokio = { version = "1.53.1", features = ["macros", "rt", "sync", "time", "rt-multi-thread"] }
+unicode-segmentation = "=1.13.3"
+unicode-width = "=0.2.2"
+uuid = { version = "1.24.0", features = ["v4", "serde"] }
+webpki-root-certs = "=1.0.9"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+
+

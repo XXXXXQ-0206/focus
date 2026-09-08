@@ -1,0 +1,37 @@
+[package]
+name = "focus-harness"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "focus"
+path = "src/bin/focus.rs"
+
+[dependencies]
+focus-runtime = { path = "../focus-runtime" }
+focus-kernel = { path = "../focus-kernel" }
+crossterm.workspace = true
+pulldown-cmark.workspace = true
+ratatui.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+unicode-segmentation.workspace = true
+unicode-width.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+async-trait.workspace = true
+futures.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+crossterm_winapi = "=0.9.1"
+
+[lints]
+workspace = true
+
+
+

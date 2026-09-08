@@ -1,0 +1,18 @@
+[package]
+name = "focus-release-compliance"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "focus-release-compliance"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+serde_json.workspace = true
+
+
+

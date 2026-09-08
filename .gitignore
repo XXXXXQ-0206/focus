@@ -1,0 +1,44 @@
+# Rust / Cargo
+/target/
+**/*.rs.bk
+
+# Local runtime and state directories created by Focus
+/.focus-harness/
+/.pi-code-agent/
+/.focus/
+
+# Internal development artifacts -- not part of the published product.
+# These are kept out of the public repository on purpose; they are local
+# evidence workspaces, upstream reference archives, and internal tooling.
+/artifacts/
+/docs/
+/references/
+/tools/
+/ACCEPTANCE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.python-version
+
+# Editors / OS
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment / secrets -- never commit real credentials
+.env
+.env.*
+!.env.example
+
+# Node / misc
+node_modules/
+*.tmp
+*.log

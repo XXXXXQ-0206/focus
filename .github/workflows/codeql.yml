@@ -1,0 +1,41 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["rust"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          # "security-and-quality" provides additional and deeper queries.
+          queries: security-and-quality
+          # Rust only supports the "none" build mode; the extractor reads the
+          # source directly without tracing a compilation.
+          build-mode: none
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
