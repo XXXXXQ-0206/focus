@@ -1949,7 +1949,9 @@ mod tests {
     };
     use serde_json::{Value, json};
 
-    use crate::{mcp::test_support::wait_for_process_exit, subagent::CancellationToken};
+    #[cfg(windows)]
+    use crate::mcp::test_support::wait_for_process_exit;
+    use crate::subagent::CancellationToken;
 
     use super::{
         CommandModelProvider, DEFAULT_OPENAI_RETRY_BASE_DELAY, OpenAiCompatibleProvider,
