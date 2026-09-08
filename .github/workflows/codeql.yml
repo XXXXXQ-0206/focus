@@ -31,15 +31,9 @@ jobs:
           languages: ${{ matrix.language }}
           # "security-and-quality" provides additional and deeper queries.
           queries: security-and-quality
-          build-mode: manual
-
-      - name: Install Rust toolchain
-        run: |
-          rustup toolchain install stable --profile minimal --component rustfmt,clippy
-          rustup default stable
-
-      - name: Build workspace
-        run: cargo build --workspace --release --locked
+          # Rust only supports the "none" build mode; the extractor reads the
+          # source directly without tracing a compilation.
+          build-mode: none
 
       - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v3
