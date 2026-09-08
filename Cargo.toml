@@ -24,7 +24,7 @@ async-trait = "0.1.92"
 command-group = "=5.0.1"
 crossterm = "=0.29.0"
 futures = "0.3.33"
-fs4 = "0.13.1"
+fs4 = "1.1.0"
 pulldown-cmark = "=0.13.4"
 ratatui = "=0.30.2"
 reqwest = { version = "=0.13.4", default-features = false, features = ["blocking", "json", "rustls", "stream"] }
