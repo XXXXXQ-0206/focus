@@ -1,0 +1,27 @@
+[package]
+name = "focus-runtime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+command-group.workspace = true
+futures.workspace = true
+fs4.workspace = true
+focus-kernel = { path = "../focus-kernel" }
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["macros"] }
+uuid.workspace = true
+webpki-root-certs.workspace = true
+
+[lints]
+workspace = true
+
+
+
