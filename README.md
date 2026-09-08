@@ -6,7 +6,7 @@
 
 [English](README.md) | [中文](README.zh-CN.md)
 
-![CI](https://img.shields.io/github/actions/workflow/status/XXXXXQ-0206/focus/ci.yml?branch=dev&label=CI)
+![CI](https://img.shields.io/github/actions/workflow/status/XXXXXQ-0206/focus/ci.yml?branch=main&label=CI)
 ![Rust](https://img.shields.io/badge/rust-1.97.1-blue)
 ![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)
 
