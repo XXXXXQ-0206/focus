@@ -916,7 +916,10 @@ pub(crate) mod test_support {
             let timeout = if scenario == "timeout" {
                 Duration::from_secs(5)
             } else {
-                Duration::from_secs(10)
+                // Align the test fixture with the production default request
+                // timeout so slow CI hosts (PowerShell cold start, spawn
+                // contention) do not spuriously fail the handshake.
+                Duration::from_secs(30)
             };
             let mut config = McpServerConfig::new("Fixture Server", &self.command)
                 .with_args(self.args.clone())
